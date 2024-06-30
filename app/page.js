@@ -40,6 +40,7 @@ export default function Home() {
                                 team1={tip.teams[0]}
                                 team2={tip.teams[1]}
                                 userTips={tip.user_tips}
+                                round={tip.round}
                             />
                         ))
                     ) : (

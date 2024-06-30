@@ -1,7 +1,9 @@
 import React from 'react';
 
-const GameCard = ({ date, location, team1, team2, userTips }) => {
-    const hallOfFame = userTips.filter(userTip => userTip.betScore === 10);
+const GameCard = ({ date, location, team1, team2, userTips, round }) => {
+    
+    const maxScore = round < 4 ? 10 : 20;
+    const hallOfFame = userTips.filter(userTip => userTip.betScore === maxScore);
 
     const getImageSrc = (name) => {
         const parts = name.split(' ');
@@ -9,7 +11,7 @@ const GameCard = ({ date, location, team1, team2, userTips }) => {
             const filename = `${parts[0].substring(0, 2).toLowerCase()}${parts[1].substring(0, 1).toLowerCase()}.png`;
             return `${filename}`;
         }
-        return '/images/default.png';
+        return 'default.png';
     };
 
     return (
