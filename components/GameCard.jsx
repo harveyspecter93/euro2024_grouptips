@@ -51,13 +51,21 @@ const GameCard = ({ date, location, team1, team2, userTips, round }) => {
                         <div className="font-bold">Tipp</div>
                         <div className="font-bold text-right pr-4">Punkte</div>
                     </div>
-                    {userTips.map((userTip, index) => (
-                        <div key={index} className="grid grid-cols-3 items-center py-2 border-b">
+                    { userTips.map((userTip, index) =>                         
+                        //{ userTip.betScoreTeam1 || userTip.betScoreTeam1 === 0 ? (
+                        <div key={index} className={userTip.betScoreTeam1 !== undefined ? `grid grid-cols-3 items-center py-2 border-b` : 'grid grid-cols-3 items-center py-2 border-b italic bg-rose-200'}>
                             <div className="text-left pl-4">{userTip.user}</div>
-                            <div className="text-lg">{userTip.betScoreTeam1} : {userTip.betScoreTeam2}</div>
-                            <div className="text-right pr-4">{userTip.betScore}</div>
+                            <div className="text-lg">{userTip.betScoreTeam1 !== undefined ? `${userTip.betScoreTeam1} : ${userTip.betScoreTeam2}` : 'verkäckt..'} </div> 
+                            <div className="text-right pr-4">{userTip.betScore}</div> 
                         </div>
-                    ))}
+                        //) : (
+                        //     <div key={userTip.user} className="grid grid-cols-3 items-center py-2 border-b">
+                        //         <div className="text-left pl-4">{userTip.user}</div>
+                        //         <div className="text-lg">verkäckt..</div> 
+                        //         <div className="text-right pr-4">0</div> 
+                        //     </div>
+                        // )}
+                    )}
                 </div>
             </div>
         </div>
